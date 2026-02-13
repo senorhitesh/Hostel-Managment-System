@@ -3,7 +3,7 @@ import { MoveRight } from "lucide-react";
 const Button = () => {
   return (
     <>
-      <button className="mt-2 bg-[#111] text-white py-3 rounded-md hover:bg-black/90 transtion-all shadow-md hover: duration-150 active:scale-98 hover:-translate-y-0.5 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] group group/arrow">
+      <button className="cursor-pointer mt-2 bg-[#111] text-white py-3 rounded-md hover:bg-black/90 transtion-all shadow-md hover: duration-150 active:scale-98 hover:-translate-y-0.5 shadow-[0px_4px_32px_0_rgba(99,102,241,.70)] group group/arrow">
         <div className="relative overflow-hidden">
           <p className="flex justify-center gap-2 group text-lg items-center group-hover:-translate-y-7 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)]">
             {" "}
