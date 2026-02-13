@@ -33,6 +33,7 @@ const InputLable = ({ name, type, label, placeholder }) => {
         "
         />
       </div>
+
       <BgGrid />
     </>
   );

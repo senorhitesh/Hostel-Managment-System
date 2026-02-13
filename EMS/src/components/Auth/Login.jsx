@@ -6,7 +6,7 @@ const Login = () => {
   return (
     <div className="max-w-5xl  min-h-screen mx-auto flex justify-center items-center flex-col gap-4 ">
       <form className="flex flex-col h-fit justify-center gap-2 bg-white p-6 w-1/2 rounded-md shadow-[0px_4px_32px_0_rgba(99,102,241,.10)] hover:shadow-[0px_4px_32px_0_rgba(99,102,241,.15)] transition-all ">
-        <h1 className="font-extrabold  text-4xl ">Suthar Samaj Hostel</h1>
+        <h1 className="font-bold text-4xl bg-clip-text bg-amber-100 text-[%FFF8DC] font-primary  ">Suthar Samaj Hostel</h1>
         <InputLable
           name="email"
           type="email"
