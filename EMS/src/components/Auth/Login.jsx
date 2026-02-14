@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Login/Button";
 import InputLable from "./Login/InputLable";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [sumbitted, setSumbitted] = useState(false)
+
+  const SubmitHandler = (e) => {
+    e.preventDefault();
+      if (!email || !password) {
+    setSumbitted(true);
+    return;
+  }
+    setSumbitted(false)
+    setEmail("");
+    setPassword("");
+  };
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden flex-col max-w-5xl mx-auto md:mx-2 sm:mx-4 sm:w-full">
+    <div
+      className="  relative
+              w-full
+              min-h-screen
+              flex flex-col
+              items-center
+              justify-center
+              bg-white
+              overflow-hidden
+              px-4 sm:px-6 md:px-8   
+              lg:max-w-5xl           
+              lg:mx-auto
+              
+              "
+    >
       <div
         className="
              absolute left-0 top-0 h-full w-12
@@ -21,7 +49,12 @@ const Login = () => {
            bg-[repeating-linear-gradient(315deg,#e5e7eb_0,#e5e7eb_1px,transparent_0,transparent_50%)]
            bg-[size:10px_10px]"
       />
-      <form className="flex flex-col h-fit justify-center gap-2 bg-white p-6 w-1/2 rounded-md shadow-[0px_4px_32px_0_rgba(99,102,241,.10)] hover:shadow-[0px_4px_32px_0_rgba(99,102,241,.15)] transition-all ">
+      <form
+        onSubmit={(val) => {
+          SubmitHandler(val);
+        }}
+        className="flex flex-col h-fit justify-center gap-2 bg-white p-6 w-1/2 rounded-md shadow-[0px_4px_32px_0_rgba(99,102,241,.10)] hover:shadow-[0px_4px_32px_0_rgba(99,102,241,.15)] transition-all "
+      >
         <h1
           className="
                inline-block
@@ -37,25 +70,33 @@ const Login = () => {
           Suthar Samaj Hostel
         </h1>
         <InputLable
+          setValue={setEmail}
+          value={email}
           name="email"
           type="email"
           placeholder="Enter your Email"
           label="Email"
+          submitted={sumbitted}
         />
         <InputLable
+          setValue={setPassword}
+          value={password}
           name="Password"
           type="password"
           placeholder="*********"
           label="Password"
+          submitted={sumbitted}
         />
         <Button />
+        <p className="self-center items-center flex text-gray-400">Don't have an account? <span className="text-bg-500 cursor-pointer hover:text-blue-600 font-medium">Sign Up</span></p>
       </form>
-      <p
+      {/* <p
         className="text-gray-400 cursor-pointer  
       py-1 px-4 rounded-full hover:text-gray-700 transtion hover:bg-gray-100 "
       >
         Agar Id nah hoto office me sampark kare
-      </p>
+      </p> */}
+
     </div>
   );
 };
