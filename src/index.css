@@ -4,7 +4,9 @@
     --font-sans:"Manrope", sans-serif;
     --font-primary:"Kalnia";
 }
-
+*{
+    box-sizing: border-box;
+}
 @layer base  {
     html{
         @apply font-sans
