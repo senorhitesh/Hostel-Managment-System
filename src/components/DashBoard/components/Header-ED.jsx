@@ -10,7 +10,7 @@ const HeaderED = () => {
           <p className="text-3xl font-bold ">Hitesh <span>🧠</span></p>
         </div>
         <button className="cursor-pointer flex gap-2 text-red-500 border-2 hover:text-white border-red-300 py-2 font-medium rounded-md hover:bg-red-600/90 px-4 transtion-all hover:border-transparent hover:shadow-md  hover: duration-150 active:scale-98 hover:-translate-y-0.5 ">
-          Log Out <span><LogOut className="" /></span>
+         <span className='hidden md:block'> Log Out</span> <span><LogOut/></span>
         </button>
       </div>
     </>
