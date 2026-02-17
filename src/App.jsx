@@ -5,8 +5,8 @@ import EmployeeDashboad from "./components/DashBoard/EmployeeDashboad";
 const App = () => {
   return <>
   {/* <Login/> */}
-  <EmployeeDashboad/>
-  {/* <AdminDashboard/> */}
+  {/* <EmployeeDashboad/> */}
+  <AdminDashboard/>
   </>;
 };
 

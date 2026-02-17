@@ -87,16 +87,16 @@ const Login = () => {
           label="Password"
           submitted={sumbitted}
         />
-        <Button />
-        <p className="self-center items-center flex text-gray-400">Don't have an account? <span className="text-bg-500 cursor-pointer hover:text-blue-600 font-medium">Sign Up</span></p>
+        <Button text="Login" />
+        {/* <p className="self-center items-center flex text-gray-400">Don't have an account? <span className="text-bg-500 cursor-pointer hover:text-blue-600 font-medium">Sign Up</span></p> */}
       </form>
-      {/* <p
+      <p
         className="text-gray-400 cursor-pointer  
       py-1 px-4 rounded-full hover:text-gray-700 transtion hover:bg-gray-100 "
       >
         Agar Id nah hoto office me sampark kare
-      </p> */}
-
+      </p>
+     <a href="https://www.instagram.com/senor_hitesh" target="_blanck"><p className="absolute bottom-0 left-0 text-gray-600 hover:text-red-800 ">~created by hostelmate-hitesh❤</p></a>
     </div>
   );
 };
