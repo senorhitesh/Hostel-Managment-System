@@ -7,10 +7,13 @@ const AuthProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const {Boyss,members} = getlocalStroge();
-    setUserData({Boyss,members})
+    const data = getlocalStroge();
+
+    if (data) {
+      const { Boyss, members } = data;
+      setUserData({ Boyss, members });
+    }
   }, []);
-  console.log(userData)
 
   return (
     <AuthContext.Provider value={{ userData, setUserData }}>
