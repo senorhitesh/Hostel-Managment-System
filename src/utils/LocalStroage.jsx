@@ -2,7 +2,7 @@ const hostelBoys = [
   {
     id: 1,
     name: "Hitesh Suthar",
-    email: "employee1@example.com",
+    email: "hitesh@example.com",
     password: "123",
     tasks: [
       {
@@ -136,4 +136,6 @@ export const setlocalStroge = ()=>{
 export const getlocalStroge = ()=>{
  const Boyss = JSON.parse(localStorage.getItem('boyss'))
  const members = JSON.parse(localStorage.getItem('members'))
+
+ return  {Boyss,members}
 }

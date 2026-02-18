@@ -2,18 +2,21 @@ import React, { useState } from "react";
 import Button from "./Login/Button";
 import InputLable from "./Login/InputLable";
 
-const Login = () => {
+const Login = ({ handleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [sumbitted, setSumbitted] = useState(false)
+  const [sumbitted, setSumbitted] = useState(false);
 
   const SubmitHandler = (e) => {
     e.preventDefault();
-      if (!email || !password) {
-    setSumbitted(true);
-    return;
-  }
-    setSumbitted(false)
+    if (!email || !password) {
+      setSumbitted(true);
+      return;
+    }
+    handleLogin(email, password);
+    console.log(handleLogin);
+
+    setSumbitted(false);
     setEmail("");
     setPassword("");
   };
@@ -30,6 +33,7 @@ const Login = () => {
               px-4 sm:px-6 md:px-8   
               lg:max-w-5xl           
               lg:mx-auto
+              
               
               "
     >
@@ -53,7 +57,7 @@ const Login = () => {
         onSubmit={(val) => {
           SubmitHandler(val);
         }}
-        className="flex flex-col h-fit justify-center gap-2 bg-white p-6 w-1/2 rounded-md shadow-[0px_4px_32px_0_rgba(99,102,241,.10)] hover:shadow-[0px_4px_32px_0_rgba(99,102,241,.15)] transition-all "
+        className="flex relative flex-col h-fit justify-center gap-2 bg-white p-6 w-1/2 rounded-md shadow-[0px_4px_32px_0_rgba(99,102,241,.10)] hover:shadow-[0px_4px_32px_0_rgba(99,102,241,.15)] transition-all "
       >
         <h1
           className="
@@ -96,7 +100,11 @@ const Login = () => {
       >
         Agar Id nah hoto office me sampark kare
       </p>
-     <a href="https://www.instagram.com/senor_hitesh" target="_blanck"><p className="absolute bottom-0 left-0 text-gray-600 hover:text-red-800 ">~created by hostelmate-hitesh❤</p></a>
+      <a href="https://www.instagram.com/senor_hitesh" target="_blanck">
+        <p className="absolute bottom-0 left-0 text-gray-600 hover:text-red-800 ">
+          ~created by hostelmate-hitesh❤
+        </p>
+      </a>
     </div>
   );
 };
