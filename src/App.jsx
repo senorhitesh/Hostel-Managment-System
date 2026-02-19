@@ -1,12 +1,13 @@
-import { use, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Login from "./components/Auth/Login";
 import AdminDashboard from "./components/DashBoard/AdminDashboard";
 import EmployeeDashboad from "./components/DashBoard/EmployeeDashboad";
-import { getlocalStroge, setlocalStroge } from "./utils/LocalStroage";
 import { AuthContext } from "./context/AuthContext";
-const data = useContext(AuthContext);
+ import {  toast } from 'react-toastify';
 
 const App = () => {
+  const data = useContext(AuthContext);
+
   const [user, setUser] = useState(null);
   const handleLogin = (email, password) => {
     if (
@@ -22,14 +23,16 @@ const App = () => {
     ) {
       setUser("User");
     } else {
-      alert("Invalid Credentials");
+      toast("Invalid Credentials");
     }
   };
 
-  console.log(data.userData.Boyss);
+  console.log(data?.userData?.Boyss);
 
   return (
     <>
+      <Toster />
+
       {!user ? <Login handleLogin={handleLogin} /> : ""}
       {user === "Admin" && <AdminDashboard />}
       {user === "User" && <EmployeeDashboad />}

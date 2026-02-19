@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Login/Button";
 import InputLable from "./Login/InputLable";
-
 const Login = ({ handleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
