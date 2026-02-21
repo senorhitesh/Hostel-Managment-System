@@ -9,47 +9,54 @@ const App = () => {
   const [logInUserData, setLogInUserData] = useState(null);
   const data = useContext(AuthContext);
 
-  // useEffect(() => {
-  //  if(data){
-  //   const LoggedInUser = localStorage.getItem("LoggedInUser");
-  //   if(LoggedInUser){
-  //     setUser(LoggedInUser.role)
-  //   }
-  //  }
-  // }, [data])
-
   const [user, setUser] = useState(null);
   const handleLogin = (email, password) => {
-    if (data) {
-      const employee = data.userData.members.find(
-        (e) => email === e.email && password == e.password,
+    if (!data?.userData) return;
+
+    // 🔹 check admin
+    const admin = data.userData.members.find(
+      (e) => email === e.email && password === e.password,
+    );
+
+    // 🔹 check employee
+    const employee = data.userData.Boyss.find(
+      (e) => email === e.email && password === e.password,
+    );
+
+    if (admin) {
+      console.log("Logged Admin:", admin);
+
+      localStorage.setItem(
+        "LoggedInUser",
+        JSON.stringify({ role: "Admin", user: admin }),
       );
-      if (employee)
-        localStorage.setItem("LoggedInUser", JSON.stringify({ role: `Admin` }));
-      setLogInUserData(employee);
+
+      setLogInUserData(admin);
       setUser("Admin");
-    } else if (data) {
-      const user = data.userData.Boyss.find(
-        (e) => email === e.email && password == e.password,
+    } else if (employee) {
+      console.log("Logged Employee:", employee);
+
+      localStorage.setItem(
+        "LoggedInUser",
+        JSON.stringify({ role: "User", user: employee }),
       );
-      if (user) {
-        localStorage.setItem("LoggedInUser", JSON.stringify({ role: `User` }));
-        setLogInUserData(user);
-        setUser("User");
-      }
+
+      setLogInUserData(employee);
+      setUser("User");
     } else {
       toast("Invalid Credentials");
     }
   };
-  console.log(setLogInUserData)
+  // console.log(setLogInUserData)
 
-  console.log(data?.userData?.Boyss);
+  // console.log(data)
+  // console.log(setLogInUserData)
 
   return (
     <>
       {!user ? <Login handleLogin={handleLogin} /> : ""}
       {user === "Admin" && <AdminDashboard />}
-      {user === "User" && <EmployeeDashboad data={logInUserData}/>}
+      {user === "User" && <EmployeeDashboad data={logInUserData} />}
     </>
   );
 };

@@ -2,7 +2,7 @@ const hostelBoys = [
   {
     id: 1,
     name: "Hitesh Suthar",
-    email: "hitesh@example.com",
+    email: "h@gmail.com",
     password: "123",
     tasks: [
       {

@@ -3,6 +3,7 @@ import HeaderED from "./components/Header-ED";
 import TaskCard from "./components/TaskCard";
 import TaskNoti from "./components/TaskNoti";
 const EmployeeDashboad = ({data}) => {
+  console.log(data)
   return (
     <div className="h-screen max-w-6xl mx-auto py-2">
       <HeaderED />

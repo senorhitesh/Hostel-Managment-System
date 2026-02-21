@@ -64,9 +64,9 @@ const Login = ({ handleLogin }) => {
                font-primary
                text-4xl font-bold
                bg-gradient-to-t
-               from-[#e4a812]
-               via-[#F4C430]
-               to-[#FFD700]
+from-[#2C1A4D] 
+via-[#6A3FA0] 
+to-[#D4AF37]
                bg-clip-text
                text-transparent"
         >
