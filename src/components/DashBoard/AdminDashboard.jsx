@@ -104,15 +104,7 @@ to-[#D4AF37]
         <div className=" text-neutral-900 pt-2 px-8 ">
           <h1 className="text-3xl font-bold mb-8 ">Assigned Tasks</h1>
           <div className="flex gap-4 p-3 flex-col h-screen overflow-auto">
-            <TaskNoti tag="jaruri" date="Just Now" title="Jaldi Dalji" />
-            <TaskNoti tag="jaruri" date="Just Now" title="Jaldi Dalji" />
-            <TaskNoti tag="jaruri" date="Just Now" title="Jaldi Dalji" />
-            <TaskNoti tag="jaruri" date="Just Now" title="Jaldi Dalji" />
-            <TaskNoti tag="jaruri" date="Just Now" title="Jaldi Dalji" />
-            <TaskNoti tag="jaruri" date="Just Now" title="Jaldi Dalji" />
-            <TaskNoti tag="jaruri" date="Just Now" title="Jaldi Dalji" />
-            <TaskNoti tag="jaruri" date="Just Now" title="Jaldi Dalji" />
-            <TaskNoti tag="jaruri" date="Just Now" title="Jaldi Dalji" />
+            <TaskNoti tag="jaruri" date="Just Now" title="Jaldi Dalji" data={data} />
           </div>
         </div>
       </div>
