@@ -36,6 +36,7 @@ const hostelBoys = [
     password: "123",
     tasks: [
       {
+        id:1,
         title: "Sports Event Setup",
         date: "2026-02-19",
         description: "Arrange ground equipment and prepare field for sports event.",
@@ -54,6 +55,17 @@ const hostelBoys = [
     email: "employee3@example.com",
     password: "123",
     tasks: [
+      {
+        title: "Attendance Register",
+        date: "2026-02-18",
+        description: "Maintain attendance records and update hostel entry register daily.",
+        tag: "admin",
+        priority: "medium",
+        active: false,
+        completed: true,
+        failed: false,
+        pending: false,
+      },
       {
         title: "Attendance Register",
         date: "2026-02-18",

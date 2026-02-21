@@ -4,7 +4,7 @@ import InputLable from "../Auth/Login/InputLable";
 import HeaderED from "./components/Header-ED";
 import TaskNoti from "./components/TaskNoti";
 
-const AdminDashboard = () => {
+const AdminDashboard = ({data}) => {
   const [taskTitle, setTT] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
@@ -29,7 +29,7 @@ const AdminDashboard = () => {
   };
   return (
     <div className="h-screen max-w-6xl mx-auto py-2">
-      <HeaderED />
+      <HeaderED data={data}/>
       <div className=" grid grid-rows-1 mt-10 p-4 lg:grid-cols-2">
         <div>
           <form
@@ -44,9 +44,9 @@ const AdminDashboard = () => {
                       font-primary
                       text-4xl font-bold
                       bg-gradient-to-t
-                      from-[#e4a812]
-                      via-[#F4C430]
-                      to-[#FFD700]
+from-[#2C1A4D] 
+via-[#6A3FA0] 
+to-[#D4AF37]
                       bg-clip-text
                       text-transparent"
             >

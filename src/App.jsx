@@ -10,17 +10,18 @@ const App = () => {
   const data = useContext(AuthContext);
 
   const [user, setUser] = useState(null);
+  
   const handleLogin = (email, password) => {
     if (!data?.userData) return;
 
     // 🔹 check admin
     const admin = data.userData.members.find(
-      (e) => email === e.email && password === e.password,
+      (e) => email == e.email && password == e.password,
     );
 
     // 🔹 check employee
     const employee = data.userData.Boyss.find(
-      (e) => email === e.email && password === e.password,
+      (e) => email == e.email && password == e.password,
     );
 
     if (admin) {
@@ -47,15 +48,11 @@ const App = () => {
       toast("Invalid Credentials");
     }
   };
-  // console.log(setLogInUserData)
-
-  // console.log(data)
-  // console.log(setLogInUserData)
 
   return (
     <>
       {!user ? <Login handleLogin={handleLogin} /> : ""}
-      {user === "Admin" && <AdminDashboard />}
+      {user === "Admin" && <AdminDashboard data={logInUserData} />}
       {user === "User" && <EmployeeDashboad data={logInUserData} />}
     </>
   );

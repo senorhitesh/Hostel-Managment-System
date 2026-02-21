@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { getlocalStroge } from "../utils/LocalStroage";
+import { getlocalStroge, setlocalStroge } from "../utils/LocalStroage";
 
 export const AuthContext = createContext(null);
 
@@ -7,12 +7,16 @@ const AuthProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const data = getlocalStroge();
+    let data = getlocalStroge();
 
-    if (data) {
-      const { Boyss, members } = data;
-      setUserData({ Boyss, members });
+    // ✅ if storage empty → initialize it
+    if (!data?.Boyss || !data?.members) {
+      setlocalStroge();
+      data = getlocalStroge();
     }
+
+    const { Boyss, members } = data;
+    setUserData({ Boyss, members });
   }, []);
 
   return (

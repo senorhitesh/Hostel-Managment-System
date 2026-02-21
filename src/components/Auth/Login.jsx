@@ -13,8 +13,6 @@ const Login = ({ handleLogin }) => {
       return;
     }
     handleLogin(email, password);
-    console.log(handleLogin);
-
     setSumbitted(false);
     setEmail("");
     setPassword("");
