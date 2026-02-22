@@ -21,7 +21,7 @@ const TnAccepted = ({
       <div>
         <div className="flex items-center gap-3">
           <p className="text-2xl text-gray-900 font-bold"> {title}</p>{" "}
-          <p className="border px-3 border-gray-500 rounded-md text-red-500">
+          <p className="border px-3 border-gray-500 rounded-md text-neutral-900 font-medium">
             {priority}
           </p>
         </div>

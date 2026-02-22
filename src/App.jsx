@@ -10,7 +10,17 @@ const App = () => {
   const data = useContext(AuthContext);
 
   const [user, setUser] = useState(null);
-  
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("LoggedInUser");
+
+    if (loggedInUser) {
+      const parsedUser = JSON.parse(loggedInUser);
+      setUser(parsedUser.role); // restore role
+      setLogInUserData(parsedUser.user); // restore user object
+    }
+  }, []);
+
   const handleLogin = (email, password) => {
     if (!data?.userData) return;
 
