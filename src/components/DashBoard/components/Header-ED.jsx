@@ -1,7 +1,11 @@
-import React from "react";
-import { LogOut } from "lucide-react";
+import {  LogOut } from "lucide-react";
+import { useEffect } from "react";
 
 const HeaderED = ({data}) => {
+  const logOutUser = ()=>{
+    localStorage.setItem('LoggedInUser','');
+    window.location.reload();
+  }
   return (
     <>
       <div className=" px-8 mt-4 justify-between flex items-center  ">
@@ -14,7 +18,9 @@ const HeaderED = ({data}) => {
         <button className="cursor-pointer flex gap-2 text-red-500 border-2 hover:text-white border-red-300 py-2 font-medium rounded-md hover:bg-red-600/90 px-4 transtion-all hover:border-transparent hover:shadow-md  hover: duration-150 active:scale-98 hover:-translate-y-0.5 ">
           <span className="hidden md:block"> Log Out</span>{" "}
           <span>
-            <LogOut />
+            <LogOut onClick={()=>{
+              logOutUser()
+            }} />
           </span>
         </button>
       </div>
