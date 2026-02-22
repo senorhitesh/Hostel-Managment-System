@@ -47,6 +47,7 @@ const hostelBoys = [
         failed: false,
         pending: true,
       },
+      
     ],
   },
   {
