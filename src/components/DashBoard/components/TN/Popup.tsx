@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LogOut } from "lucide-react";
+import { LogOut, AlertCircle, X } from "lucide-react";
 
 const Popup = () => {
   const [showModal, setShowModal] = useState(false);
@@ -22,32 +22,54 @@ const Popup = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          {/* Modal Card */}
+          <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl transform transition-all">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X size={24} />
+            </button>
 
-          <div className="bg-gray-100 w-[350px] rounded-md flex flex-col items-center justify-center gap-6 h-60 p-6">
+            {/* Content */}
+            <div className="p-8 text-center">
+              {/* Icon */}
+              <div className="mx-auto w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                <AlertCircle className="text-red-600" size={32} />
+              </div>
 
-            <p className="text-2xl font-bold text-gray-900">
-              Are you sure?
-            </p>
+              {/* Title */}
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                Log Out?
+              </h2>
 
-            <div className="flex gap-4">
-              {/* Confirm Logout */}
-              <button
-                onClick={logOutUser}
-                className="flex gap-2 text-white bg-red-500 py-2 px-4 rounded-md hover:bg-red-600"
-              >
-                Log Out <LogOut size={18} />
-              </button>
+              {/* Description */}
+              <p className="text-gray-600 mb-8">
+                Are you sure you want to log out of your account?
+              </p>
 
-              {/* Cancel */}
-              <button
-                onClick={() => setShowModal(false)}
-                className="py-2 px-4 border rounded-md hover:bg-gray-200"
-              >
-                Cancel
-              </button>
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3">
+                {/* Confirm Logout */}
+                <button
+                  onClick={logOutUser}
+                  className="flex-1 flex items-center justify-center gap-2 text-white bg-red-600 py-3 px-6 rounded-lg font-medium hover:bg-red-700 active:scale-95 transition-all shadow-lg shadow-red-600/20"
+                >
+                  <LogOut size={18} />
+                  Log Out
+                </button>
+
+                {/* Cancel */}
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="flex-1 py-3 px-6 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 active:scale-95 transition-all"
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
-
           </div>
         </div>
       )}
