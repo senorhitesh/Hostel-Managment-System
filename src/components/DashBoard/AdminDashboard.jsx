@@ -3,8 +3,8 @@ import Button from "../Auth/Login/Button";
 import InputLable from "../Auth/Login/InputLable";
 import HeaderED from "./components/Header-ED";
 import TaskforAdmin from "./components/TN/TaskforAdmin";
-
-const AdminDashboard = ({data}) => {
+import AllSrudentWrapper from "./components/TN/AllSrudentWrapper";
+const AdminDashboard = ({ data }) => {
   const [taskTitle, setTT] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
@@ -29,7 +29,7 @@ const AdminDashboard = ({data}) => {
   };
   return (
     <div className="h-screen max-w-6xl mx-auto py-2">
-      <HeaderED data={data}/>
+      <HeaderED data={data} />
       <div className=" grid grid-rows-1 mt-10 p-4 lg:grid-cols-2">
         <div>
           <form
@@ -104,12 +104,20 @@ to-[#D4AF37]
         <div className=" text-neutral-900 pt-2 px-8 ">
           <h1 className="text-3xl font-bold mb-8 ">Assigned Tasks</h1>
           <div className="flex gap-4 p-3 flex-col h-screen overflow-auto">
-            <TaskforAdmin tag="jaruri" date="Just Now" title="Jaldi Dalji" data={data} />
+            <TaskforAdmin
+              tag="jaruri"
+              date="Just Now"
+              title="Jaldi Dalji"
+              data={data}
+            />
           </div>
         </div>
       </div>
+      <AllSrudentWrapper/>
     </div>
   );
 };
 
 export default AdminDashboard;
+
+
