@@ -82,8 +82,8 @@ const hostelBoys = [
   },
   {
     id: 4,
-    name: "Bhaji",
-    email: "employee4@example.com",
+    name: "Uttam",
+    email: "uttam@example.com",
     password: "123",
     tasks: [
       {
