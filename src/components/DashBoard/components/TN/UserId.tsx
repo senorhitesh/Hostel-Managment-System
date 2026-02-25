@@ -4,7 +4,7 @@ import { ChevronsRight ,User  ,Calendar , MapPin} from "lucide-react";
 const UserId = () => {
   return (
     <>
-      <div className="bg-white mb-1 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group cursor-pointer">
+      <div className="bg-white mb-1 rounded-md shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group cursor-pointer">
         {/* Hover gradient background */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-50/0 via-purple-50/0 to-pink-50/0 group-hover:from-blue-50/30 group-hover:via-purple-50/30 group-hover:to-pink-50/30 transition-all duration-500 pointer-events-none" />
 
