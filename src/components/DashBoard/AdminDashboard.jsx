@@ -4,6 +4,10 @@ import InputLable from "../Auth/Login/InputLable";
 import HeaderED from "./components/Header-ED";
 import TaskforAdmin from "./components/TN/TaskforAdmin";
 import AllSrudentWrapper from "./components/TN/AllSrudentWrapper";
+import { AuthContext } from "../../context/AuthContext";
+import { useContext } from "react";
+
+
 const AdminDashboard = ({ data }) => {
   const [taskTitle, setTT] = useState("");
   const [description, setDescription] = useState("");
@@ -11,24 +15,55 @@ const AdminDashboard = ({ data }) => {
   const [assignTo, setAssignTo] = useState("");
   const [category, setCategory] = useState("");
   const [sumbitted, setSumbitted] = useState(false);
+const { userData, setUserData } = useContext(AuthContext);
 
   const SubmitHandler = (e) => {
-    e.preventDefault();
-    if (!taskTitle || !description || !date || !assignTo || !category) {
-      setSumbitted(true);
-      return;
-    }
-    setSumbitted(false);
-    setTT("");
-    // setPassword("");
-    setDescription("");
-    setDate("");
-    setAssignTo("");
-    setCategory("");
-    setSumbitted("");
-  console.log(taskTitle)
-    
+  e.preventDefault();
+
+  if (!taskTitle || !description || !date || !assignTo || !category) {
+    setSumbitted(true);
+    return;
+  }
+
+  const newTask = {
+    id: crypto.randomUUID(),
+    title: taskTitle,
+    date,
+    description,
+    tag: category,
+    priority: "medium",
+    active: true,
+    completed: false,
+    failed: false,
+    pending: true,
   };
+
+  const updatedBoyss = userData.Boyss.map((emp) => {
+    if (emp.name.toLowerCase() === assignTo.toLowerCase()) {
+      return {
+        ...emp,
+        tasks: [newTask, ...(emp.tasks || [])],
+      };
+    }
+    return emp;
+  });
+
+  setUserData({
+    ...userData,
+    Boyss: updatedBoyss,
+  });
+
+  localStorage.setItem("boyss", JSON.stringify(updatedBoyss));
+
+  // reset form
+  setTT("");
+  setDescription("");
+  setDate("");
+  setAssignTo("");
+  setCategory("");
+  setSumbitted(false);
+};
+
   return (
     <div className="h-screen max-w-6xl mx-auto py-2">
       <HeaderED data={data} />
@@ -115,11 +150,9 @@ const AdminDashboard = ({ data }) => {
           </div>
         </div>
       </div>
-      <AllSrudentWrapper/>
+      <AllSrudentWrapper />
     </div>
   );
 };
 
 export default AdminDashboard;
-
-
