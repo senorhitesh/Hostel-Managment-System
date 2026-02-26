@@ -1,5 +1,5 @@
 import React from "react";
-import { ChevronsRight ,User  ,Calendar , MapPin} from "lucide-react";
+import { ChevronsRight, User, Calendar, MapPin } from "lucide-react";
 
 const UserId = () => {
   return (
@@ -20,14 +20,12 @@ const UserId = () => {
               <p className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                 Hitesh Suthar
               </p>
-
               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 mt-3">
                 {/* Location */}
                 <div className="flex items-center gap-2">
                   <MapPin size={16} className="text-blue-500" />
                   <span className="text-sm text-gray-600">Sawali</span>
                 </div>
-
                 {/* Joined Date */}
                 <div className="flex items-center gap-2">
                   <Calendar size={16} className="text-green-500" />
@@ -38,16 +36,18 @@ const UserId = () => {
               </div>
             </div>
           </div>
-
-          {/* Right Section - Arrow Button */}
-          <div className="flex-shrink-0">
-            <div className="h-14 w-14 rounded-full bg-gray-50 group-hover:bg-blue-100 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-              <ChevronsRight
-                size={28}
-                className="text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all duration-300"
-              />
-            </div>
+          <div className="flex gap-14">
+            <p className="text-green-800 font-medium   py-2 px-4 hover:bg-green-200 rounded-full">
+              Completed <span> 2</span>
+            </p>
+            <p className="text-blue-900 font-medium py-2 px-4 hover:bg-blue-100 rounded-full ">
+              Active <span> 2</span>
+            </p>
+            <p className="text-red-700 font-medium py-2 px-4 hover:bg-red-100  rounded-full">
+              Failed <span> 2</span>
+            </p>
           </div>
+          {/* Right Section - Arrow Button */}
         </div>
 
         {/* Bottom accent line */}
@@ -55,5 +55,4 @@ const UserId = () => {
     </>
   );
 };
-
 export default UserId;

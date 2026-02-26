@@ -20,12 +20,14 @@ const AdminDashboard = ({ data }) => {
     }
     setSumbitted(false);
     setTT("");
-    setPassword("");
+    // setPassword("");
     setDescription("");
     setDate("");
     setAssignTo("");
     setCategory("");
     setSumbitted("");
+  console.log(taskTitle)
+    
   };
   return (
     <div className="h-screen max-w-6xl mx-auto py-2">
@@ -44,9 +46,9 @@ const AdminDashboard = ({ data }) => {
                       font-primary
                       text-4xl font-bold
                       bg-gradient-to-t
-from-[#2C1A4D] 
-via-[#6A3FA0] 
-to-[#D4AF37]
+                            from-[#2C1A4D] 
+                            via-[#6A3FA0] 
+                            to-[#D4AF37]
                       bg-clip-text
                       text-transparent"
             >
